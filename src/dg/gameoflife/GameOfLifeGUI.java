@@ -3,7 +3,7 @@
 *
 * Purpose: Hobby Project.
 *
-* Date last modified: 02/08/16
+* Date last modified: 03/08/16
 *
 * Author: Daniel Griffin
 ******************************************************************************/
@@ -39,8 +39,8 @@ public class GameOfLifeGUI extends Application {
     	squareGridPane = new GridPane();
     	squareGrid = new Grid();
     	
-    	for (int x=0; x<30; x++) {
-    		for (int y=0; y<30; y++) {
+    	for (int x=0; x<40; x++) {
+    		for (int y=0; y<40; y++) {
 		        Rectangle r = new Rectangle(15,15, Color.WHITE);
 		        r.setStroke(Color.GRAY);
 		        squareGridPane.add(r,x,y);
@@ -48,12 +48,19 @@ public class GameOfLifeGUI extends Application {
     		}
         }
     	
+    	squareGrid.turnCellBlack(20,20);
+    	squareGrid.turnCellBlack(20,19);
+    	squareGrid.turnCellBlack(21,19);
+    	squareGrid.turnCellBlack(21,18);
+    	squareGrid.turnCellBlack(19,18);
+    	
     	startButton = new Button("Start");
         
+    	// When clicked it updates the grid after applying the rules.
         startButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
-            public void handle(ActionEvent event){
-                updateGrid();
+            public void handle(ActionEvent event) {
+                GameOfLifeAlgorithm.createUpdatedGrid(squareGrid);
             }
         });
         
@@ -63,23 +70,13 @@ public class GameOfLifeGUI extends Application {
         rootPane = new VBox(5);
         rootPane.getChildren().addAll(squareGridPane, buttonPane);
         
-        mainScene = new Scene(rootPane,600,700);
+        mainScene = new Scene(rootPane,700,700);
         
         mainStage.setTitle("Conway's Game of Life");
         mainStage.setScene(mainScene);
         mainStage.show();       
     }
-    
-    // Updates the grid to show the new grid of squares passed to it.
-    public void updateGrid () {
-    	
-    	for (int x=0; x<30; x++) {
-    		for (int y=0; y<30; y++) {
-		        squareGrid.turnCellBlack(x, y);
-    		}
-        }
-    }
-    
+           
     public static void main(String[] args) {
     	launch(args);
     }
