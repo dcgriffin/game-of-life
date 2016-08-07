@@ -25,6 +25,7 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.util.Duration;
 import javafx.animation.KeyValue;
+import javafx.animation.PauseTransition;
 
 
 public class GameOfLifeGUI extends Application {
@@ -60,12 +61,19 @@ public class GameOfLifeGUI extends Application {
 
     	startButton = new Button("Start");
 
-    	// When clicked it calls a function that continously updates the grid
-        // after applying the rules.
+    	// When the startButton is clicked it calls a function it continously
+        // executes a function which applies the rules of the game and updates
+        // the grid.
         startButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                GameOfLifeAlgorithm.createUpdatedGrid(squareGrid);
+                Timeline timeline = new Timeline(new KeyFrame( Duration.seconds(0.5),
+                    timelineEvent -> {
+                        GameOfLifeAlgorithm.createUpdatedGrid(squareGrid);
+                }));
+
+                timeline.setCycleCount(Animation.INDEFINITE);
+                timeline.play();
             }
         });
 

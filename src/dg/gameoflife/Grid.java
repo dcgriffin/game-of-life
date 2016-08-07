@@ -49,7 +49,7 @@ public class Grid {
 	// Returns true if there are any live cells left in the grid visible to the user.
 	public Boolean gridStatus() {
 		for (int x=0; x<40; x++) {
-    		for (int y=0; y<40; y++) {
+    		for (int y=1; y<40; y++) {
 		        if (this.cellStatus(x, y) == true) {
 		        	System.out.println("True");
 		        	return true;
