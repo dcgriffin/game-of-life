@@ -53,11 +53,14 @@ public class GameOfLifeGUI extends Application {
     		}
         }
 
-    	squareGrid.turnCellBlack(20,20);
-    	squareGrid.turnCellBlack(20,19);
-    	squareGrid.turnCellBlack(21,19);
-    	squareGrid.turnCellBlack(21,18);
-    	squareGrid.turnCellBlack(19,18);
+        squareGrid.turnCellBlack(17,18);
+        squareGrid.turnCellBlack(17,19);
+        squareGrid.turnCellBlack(17,20);
+        squareGrid.turnCellBlack(18,20);
+        squareGrid.turnCellBlack(19,20);
+        squareGrid.turnCellBlack(19,19);
+        squareGrid.turnCellBlack(19,18);
+        squareGrid.turnCellBlack(18,17);
 
     	startButton = new Button("Start");
 
