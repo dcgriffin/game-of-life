@@ -45,15 +45,15 @@ public class GameOfLifeGUI extends Application {
     	squareGridPane = new GridPane();
     	squareGrid = new Grid();
 
-        // Creates a 40 by 40 grid of Rectangles and adds them to the Pane.
+        // Creates a 40 by 40 grid of Cells and adds them to the Pane.
     	for (int x=0; x<40; x++) {
     		for (int y=0; y<40; y++) {
-		        Rectangle r = new Rectangle(15,15, Color.WHITE);
-                r.setStroke(Color.GRAY);
-                squareGridPane.add(r,x,y);
-                squareGrid.add(r,x,y);
+		        Cell c = new Cell(15,15);
+                c.setStroke(Color.GRAY);
+                squareGridPane.add(c,x,y);
+                squareGrid.add(c,x,y);
 
-                r.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                c.setOnMouseClicked(new EventHandler<MouseEvent>() {
                     @Override
                     public void handle(MouseEvent t) {
 
