@@ -56,7 +56,7 @@ public class GameOfLifeGUI extends Application {
                 c.setOnMouseClicked(new EventHandler<MouseEvent>() {
                     @Override
                     public void handle(MouseEvent t) {
-
+                        c.cellClicked();
                     }
                 });
     		}
