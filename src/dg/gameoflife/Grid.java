@@ -46,6 +46,14 @@ public class Grid {
 			return false;
 	}
 
+    // Resets the grid so all the cells are white/dead.
+    public void resetGrid() {
+        for (int x=0; x<40; x++) {
+            for (int y=0; y<40; y++) {
+                turnCellWhite(x,y);
+        }
+    }
+
     /*** Function not currently used ***/
 	// Returns true if there are any live cells left in the grid visible to the user.
 	public Boolean gridStatus() {

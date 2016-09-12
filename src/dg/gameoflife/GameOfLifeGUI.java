@@ -62,15 +62,6 @@ public class GameOfLifeGUI extends Application {
     		}
         }
 
-        squareGrid.turnCellBlack(17,18);
-        squareGrid.turnCellBlack(17,19);
-        squareGrid.turnCellBlack(17,20);
-        squareGrid.turnCellBlack(18,20);
-        squareGrid.turnCellBlack(19,20);
-        squareGrid.turnCellBlack(19,19);
-        squareGrid.turnCellBlack(19,18);
-        squareGrid.turnCellBlack(18,17);
-
     	Button startButton = new Button("Start");
 
     	// When the startButton is clicked it continously
@@ -99,11 +90,91 @@ public class GameOfLifeGUI extends Application {
             }
         });
 
+        Button gliderButton = new Button("Glider");
+
+        // Creates a glider shape on the grid.
+        gliderButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                squareGrid.turnCellBlack(17,20);
+                squareGrid.turnCellBlack(18,20);
+                squareGrid.turnCellBlack(19,20);
+                squareGrid.turnCellBlack(19,19);
+                squareGrid.turnCellBlack(18,18);
+            }
+        });
+
+        Button pulsarButton = new Button("Pulsar");
+
+        // Creates a pulsar shape on the grid.
+        pulsarButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+
+                squareGrid.turnCellBlack(14,14);
+                squareGrid.turnCellBlack(15,14);
+                squareGrid.turnCellBlack(16,14);
+                squareGrid.turnCellBlack(17,18);
+                squareGrid.turnCellBlack(17,17);
+                squareGrid.turnCellBlack(17,16);
+                squareGrid.turnCellBlack(12,18);
+                squareGrid.turnCellBlack(12,17);
+                squareGrid.turnCellBlack(12,16);
+                squareGrid.turnCellBlack(14,19);
+                squareGrid.turnCellBlack(15,19);
+                squareGrid.turnCellBlack(16,19);
+
+                squareGrid.turnCellBlack(20,14);
+                squareGrid.turnCellBlack(21,14);
+                squareGrid.turnCellBlack(22,14);
+                squareGrid.turnCellBlack(24,18);
+                squareGrid.turnCellBlack(24,17);
+                squareGrid.turnCellBlack(24,16);
+                squareGrid.turnCellBlack(19,18);
+                squareGrid.turnCellBlack(19,17);
+                squareGrid.turnCellBlack(19,16);
+                squareGrid.turnCellBlack(20,19);
+                squareGrid.turnCellBlack(21,19);
+                squareGrid.turnCellBlack(22,19);
+
+                squareGrid.turnCellBlack(14,21);
+                squareGrid.turnCellBlack(15,21);
+                squareGrid.turnCellBlack(16,21);
+                squareGrid.turnCellBlack(17,24);
+                squareGrid.turnCellBlack(17,23);
+                squareGrid.turnCellBlack(17,22);
+                squareGrid.turnCellBlack(12,24);
+                squareGrid.turnCellBlack(12,23);
+                squareGrid.turnCellBlack(12,22);
+                squareGrid.turnCellBlack(14,26);
+                squareGrid.turnCellBlack(15,26);
+                squareGrid.turnCellBlack(16,26);
+
+                squareGrid.turnCellBlack(20,21);
+                squareGrid.turnCellBlack(21,21);
+                squareGrid.turnCellBlack(22,21);
+                squareGrid.turnCellBlack(24,24);
+                squareGrid.turnCellBlack(24,23);
+                squareGrid.turnCellBlack(24,22);
+                squareGrid.turnCellBlack(19,24);
+                squareGrid.turnCellBlack(19,23);
+                squareGrid.turnCellBlack(19,22);
+                squareGrid.turnCellBlack(20,26);
+                squareGrid.turnCellBlack(21,26);
+                squareGrid.turnCellBlack(22,26);
+
+
+
+            }
+        });
+
         buttonPane = new GridPane();
         buttonPane.setHgap(10);
         buttonPane.setVgap(10);
         buttonPane.add(startButton,1,1);
         buttonPane.add(stopButton,2,1);
+        buttonPane.add(gliderButton,3,1);
+        buttonPane.add(pulsarButton,4,1);
 
         rootPane = new VBox(5);
         rootPane.getChildren().addAll(squareGridPane, buttonPane);
