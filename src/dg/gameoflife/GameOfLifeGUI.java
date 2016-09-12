@@ -36,7 +36,7 @@ public class GameOfLifeGUI extends Application {
 	private VBox rootPane;
 	private Stage mainStage;
 	private Scene mainScene;
-	private Button startButton;
+    private Timeline timeline;
 
 	// Displays the stage and creates the initial scene within it.
     @Override
@@ -71,15 +71,15 @@ public class GameOfLifeGUI extends Application {
         squareGrid.turnCellBlack(19,18);
         squareGrid.turnCellBlack(18,17);
 
-    	startButton = new Button("Start");
+    	Button startButton = new Button("Start");
 
-    	// When the startButton is clicked it calls a function it continously
+    	// When the startButton is clicked it continously
         // executes a function which applies the rules of the game and updates
         // the grid.
         startButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                Timeline timeline = new Timeline(new KeyFrame( Duration.seconds(0.5),
+                timeline = new Timeline(new KeyFrame( Duration.seconds(0.5),
                     timelineEvent -> {
                         GameOfLifeAlgorithm.createUpdatedGrid(squareGrid);
                 }));
@@ -89,8 +89,21 @@ public class GameOfLifeGUI extends Application {
             }
         });
 
+        Button stopButton = new Button("Stop");
+
+        // Stops the simulation.
+        stopButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                timeline.stop();
+            }
+        });
+
         buttonPane = new GridPane();
-        buttonPane.add(startButton,15,35);
+        buttonPane.setHgap(10);
+        buttonPane.setVgap(10);
+        buttonPane.add(startButton,1,1);
+        buttonPane.add(stopButton,2,1);
 
         rootPane = new VBox(5);
         rootPane.getChildren().addAll(squareGridPane, buttonPane);
