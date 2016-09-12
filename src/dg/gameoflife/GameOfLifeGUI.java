@@ -3,7 +3,7 @@
 *
 * Purpose: Hobby Project.
 *
-* Date last modified: 05/08/16
+* Date last modified: 29/08/16
 *
 * Author: Daniel Griffin
 ******************************************************************************/
@@ -18,6 +18,7 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.animation.Animation;
@@ -44,12 +45,20 @@ public class GameOfLifeGUI extends Application {
     	squareGridPane = new GridPane();
     	squareGrid = new Grid();
 
+        // Creates a 40 by 40 grid of Rectangles and adds them to the Pane.
     	for (int x=0; x<40; x++) {
     		for (int y=0; y<40; y++) {
 		        Rectangle r = new Rectangle(15,15, Color.WHITE);
-		        r.setStroke(Color.GRAY);
-		        squareGridPane.add(r,x,y);
-		        squareGrid.add(r, x, y);
+                r.setStroke(Color.GRAY);
+                squareGridPane.add(r,x,y);
+                squareGrid.add(r,x,y);
+
+                r.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent t) {
+
+                    }
+                });
     		}
         }
 
