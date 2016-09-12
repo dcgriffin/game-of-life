@@ -27,6 +27,7 @@ import javafx.animation.Timeline;
 import javafx.util.Duration;
 import javafx.animation.KeyValue;
 import javafx.animation.PauseTransition;
+import javafx.geometry.Insets;
 
 
 public class GameOfLifeGUI extends Application {
@@ -43,6 +44,7 @@ public class GameOfLifeGUI extends Application {
     public void start(Stage primaryStage) {
     	mainStage = primaryStage;
     	squareGridPane = new GridPane();
+        squareGridPane.setPadding(new Insets(10, 10, 0, 10));
     	squareGrid = new Grid();
 
         // Creates a 40 by 40 grid of Cells and adds them to the Pane.
@@ -168,13 +170,26 @@ public class GameOfLifeGUI extends Application {
             }
         });
 
+        Button resetButton = new Button("Reset");
+
+        // Stops the simulation and resets the grid to all dead cells.
+        resetButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                squareGrid.resetGrid();
+                timeline.stop();
+            }
+        });
+
         buttonPane = new GridPane();
         buttonPane.setHgap(10);
         buttonPane.setVgap(10);
+        buttonPane.setPadding(new Insets(0, 0, 0, 180));
         buttonPane.add(startButton,1,1);
         buttonPane.add(stopButton,2,1);
-        buttonPane.add(gliderButton,3,1);
-        buttonPane.add(pulsarButton,4,1);
+        buttonPane.add(resetButton,3,1);
+        buttonPane.add(gliderButton,4,1);
+        buttonPane.add(pulsarButton,5,1);
 
         rootPane = new VBox(5);
         rootPane.getChildren().addAll(squareGridPane, buttonPane);
