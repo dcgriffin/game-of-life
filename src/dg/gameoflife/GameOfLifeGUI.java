@@ -3,7 +3,7 @@
 *
 * Purpose: Hobby Project.
 *
-* Date last modified: 29/08/16
+* Date last modified: 13/09/16
 *
 * Author: Daniel Griffin
 ******************************************************************************/
@@ -37,7 +37,11 @@ public class GameOfLifeGUI extends Application {
 	private VBox rootPane;
 	private Stage mainStage;
 	private Scene mainScene;
-    private Timeline timeline;
+
+    // Creates a Timeline that calls a function to continously update the grid
+    // every 0.5 seconds.
+    private Timeline timeline = new Timeline(new KeyFrame( Duration.seconds(0.5),
+        timelineEvent -> {GameOfLifeAlgorithm.createUpdatedGrid(squareGrid); }));
 
 	// Displays the stage and creates the initial scene within it.
     @Override
@@ -66,17 +70,10 @@ public class GameOfLifeGUI extends Application {
 
     	Button startButton = new Button("Start");
 
-    	// When the startButton is clicked it continously
-        // executes a function which applies the rules of the game and updates
-        // the grid.
+    	// When the startButton is clicked it plays "timeline" indefinitely.
         startButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                timeline = new Timeline(new KeyFrame( Duration.seconds(0.5),
-                    timelineEvent -> {
-                        GameOfLifeAlgorithm.createUpdatedGrid(squareGrid);
-                }));
-
                 timeline.setCycleCount(Animation.INDEFINITE);
                 timeline.play();
             }
