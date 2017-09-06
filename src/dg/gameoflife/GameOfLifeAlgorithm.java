@@ -4,10 +4,6 @@
 * out the algorithm to simulate the rules of the game. The grid wraps around so
 * the bottom meets up with the top, and the left side meets up with the right side.
 *
-* Purpose: Hobby Project.
-*
-* Date last modified: 03/08/16
-*
 * Author: Daniel Griffin
 ******************************************************************************/
 

@@ -1,10 +1,6 @@
 /* *****************************************************************************
 * Description: A class used to create the visuals for Conway's Game of Life.
 *
-* Purpose: Hobby Project.
-*
-* Date last modified: 13/09/16
-*
 * Author: Daniel Griffin
 ******************************************************************************/
 

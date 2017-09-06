@@ -2,10 +2,6 @@
 * Description: A class used to represent and store the details of the cells in
 * the grid for Conway's Game of Life. It extends the Rectangle Class.
 *
-* Purpose: Hobby Project.
-*
-* Date last modified: 13/09/16
-*
 * Author: Daniel Griffin
 ******************************************************************************/
 
