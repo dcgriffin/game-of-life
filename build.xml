@@ -1,0 +1,14 @@
+<project name="GameOfLife" default="compile" basedir=".">
+    <property name="src" location="src/dg/gameoflife"/>
+    <property name="build" location="bin/"/>
+    <property name="dist" location="dist"/>
+
+    <target name="clean">
+        <delete dir="${build}"/>
+    </target>
+
+    <target name="compile">
+        <mkdir dir="${build}"/>
+        <javac includeantruntime="false" srcdir="${src}" destdir="${build}"/>
+    </target>
+</project>
